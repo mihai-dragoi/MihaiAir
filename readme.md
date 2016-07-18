@@ -33,7 +33,7 @@ http://mihaiair.local:8080/flights
 
 
 After initial setup:
-docker-machine start mihaiair
-docker-machine env mihaiair
-eval "$(docker-machine env mihaiair)"
-docker-compose up -d
+a. docker-machine start mihaiair
+b. docker-machine env mihaiair
+c. eval "$(docker-machine env mihaiair)"
+d. docker-compose up -d
