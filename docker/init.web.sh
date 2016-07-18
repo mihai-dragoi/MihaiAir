@@ -9,6 +9,7 @@ echo "Check DB mihaiair ?"
 
 if ! mysql -uroot -proot -h mihaiairdb.local -e 'use mihaiair'; then
     mysql -uroot -proot -h mihaiairdb.local -e "create database mihaiair;"
+    mysql -uroot -proot -h mihaiairdb.local mihaiair < mihaiair_2016-07-18.sql
     echo >&2 "DB created"
 else
     echo "DB exist."
