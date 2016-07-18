@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+mihaiair.web:
+  container_name: mihaiair.web
+  build: .
+  dockerfile: Dockerfile
+  links:
+    - "mihaiair.db:mihaiairdb.local"
+  ports:
+    - "8080:80"
+  volumes:
+    - ".:/var/www"
+  entrypoint: /docker/init.web.sh
+
+mihaiair.db:
+  container_name: mihaiair.db
+  build: docker/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+  ports:
+    - "3306:3306"
+  volumes:
+      - "/mnt/sda1/data/mysql:/var/lib/mysql"
